@@ -1,6 +1,6 @@
 {
   "name": "static-dir",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "当前目录启动一个web服务",
   "main": "index.js",
   "bin": {
