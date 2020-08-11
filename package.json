@@ -1,6 +1,6 @@
 {
   "name": "static-dir",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "当前目录启动一个web服务",
   "main": "index.js",
   "bin": {
@@ -16,7 +16,10 @@
   "author": "sunhaikuo",
   "license": "ISC",
   "dependencies": {
+    "@types/fs-extra": "^9.0.1",
+    "colors": "^1.4.0",
     "express": "^4.17.1",
+    "fs-extra": "^9.0.1",
     "open": "^7.1.0"
   }
 }
