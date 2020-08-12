@@ -1,7 +1,7 @@
 {
   "name": "static-dir",
-  "version": "1.0.2",
-  "description": "当前目录启动一个web服务",
+  "version": "1.0.3",
+  "description": "Start a Web Server for your current or relative directory",
   "main": "index.js",
   "bin": {
     "static": "./index.js"
@@ -15,6 +15,7 @@
   },
   "author": "sunhaikuo",
   "license": "ISC",
+  "keywords": ["static", "web server"],
   "dependencies": {
     "@types/fs-extra": "^9.0.1",
     "colors": "^1.4.0",

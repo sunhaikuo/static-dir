@@ -1,4 +1,4 @@
-# Start a Web Server for your current directory or relative directory
+# Start a Web Server for your current or relative directory
 
 ## Installation
 ---
