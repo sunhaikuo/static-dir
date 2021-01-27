@@ -11,11 +11,14 @@ const color = require('colors');
 const { exec } = require('child_process');
 
 let dirPath = '';
+let isOpen = false;
 
 const argv = process.argv;
+console.log('argv', argv);
 if (argv.length > 2) {
     const newPath = path.resolve(curPath, argv[2]);
     const isExit = fs.existsSync(newPath);
+    isOpen = argv[3] != null;
     if (isExit) {
         dirPath = newPath;
     } else {
@@ -40,19 +43,23 @@ function checkPort() {
 
 checkPort();
 
-app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-    res.header("X-Powered-By",' 3.2.1')
-    if(req.method=="OPTIONS") res.send(200);/*让options请求快速返回*/
-    else  next();
+app.all('*', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type,Content-Length, Authorization, Accept,X-Requested-With');
+    res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
+    res.header('X-Powered-By', ' 3.2.1');
+    if (req.method == 'OPTIONS') res.send(200);
+    /*让options请求快速返回*/ else next();
 });
 
 setTimeout(() => {
     app.use(express.static(dirPath));
     app.listen(port, () => {
+        const url = `http://127.0.0.1:${port}`;
         console.log(`work path is ${dirPath}`.green);
-        open(`http://127.0.0.1:${port}`);
+        console.log('current url is', url);
+        if (isOpen) {
+            open(url);
+        }
     });
 }, 2000);

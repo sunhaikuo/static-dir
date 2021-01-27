@@ -1,6 +1,6 @@
 {
   "name": "static-dir",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Start a Web Server for your current or relative directory",
   "main": "index.js",
   "bin": {
